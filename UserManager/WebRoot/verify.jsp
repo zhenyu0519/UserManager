@@ -23,6 +23,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <%
+        //receive the username and password to verify
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        //simple verify
+        if(username.equals("jeffery")&&password.equals("123")){
+            response.sendRedirect("welcome.jsp");
+        }else{
+            response.sendRedirect("login.jsp");
+        }
+     %>
+     <br>
   </body>
 </html>
