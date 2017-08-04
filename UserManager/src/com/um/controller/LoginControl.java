@@ -35,14 +35,14 @@ public class LoginControl extends HttpServlet {
 			//prepare the data that need to display before jump to welcome page
 			ArrayList recordList = ubo.getPagination(1);
 			int pageCount = ubo.getPageCount();
-			//put recordList and pageCount and pageNow into request
+			//put recordList and pageCount, pageNow and username into request
 			request.setAttribute("recordList", recordList);
 			request.setAttribute("pageCount", pageCount+"");
 			request.setAttribute("pageNow", "1");
+			request.setAttribute("username", username);
 			//response.sendRedirect("welcome.jsp"); does not have good performance
 			//this one has good performance and the content of request can be used in next page
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
-			System.out.print("I am really here in servelet");
 		}else{
 			//response.sendRedirect("login.jsp"); does not have good performance
 			request.getRequestDispatcher("login.jsp").forward(request, response);
