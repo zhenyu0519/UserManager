@@ -60,17 +60,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <%
      //create prev page link
      if(pageNow!=1){
-        out.println("<a href=welcome.jsp?pageNow="+(pageNow-1)+">[Prev]</a>");
+        out.println("<a href=UserController?pageNow="+(pageNow-1)+">[Prev]</a>");
      }
      //get the pageCount
      int pageCount = Integer.parseInt((String)request.getAttribute("pageCount"));
      //get the link for each page
      for(int i=1; i<pageCount;i++){
-        out.println("<a href=welcome.jsp?pageNow="+i+">["+i+"]</a>");
+        out.println("<a href=UserController?pageNow="+i+">["+i+"]</a>");
      }
      if(pageNow!=pageCount){
         //create next page link
-        out.println("<a href=welcome.jsp?pageNow="+(pageNow+1)+">[Next]</a>");
+        out.println("<a href=UserController?pageNow="+(pageNow+1)+">[Next]</a>");
      }
      %>
   </body>
