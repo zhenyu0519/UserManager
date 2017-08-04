@@ -37,8 +37,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             pageNow = Integer.parseInt(targetPage);
         }
        //call userbean to done the pagination
-       UserBeanOperation ubo = new UserBeanOperation();
-       ArrayList recordList = ubo.getPagination(pageNow);
+       //UserBeanOperation ubo = new UserBeanOperation();
+       //ArrayList recordList = ubo.getPagination(pageNow);
+       //display the information from request
+       ArrayList recordList=(ArrayList)request.getAttribute("recordList");
        
         //create table to display the records
      %>
@@ -60,7 +62,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      if(pageNow!=1){
         out.println("<a href=welcome.jsp?pageNow="+(pageNow-1)+">[Prev]</a>");
      }
-     int pageCount = ubo.getPageCount();
+     //get the pageCount
+     int pageCount = Integer.parseInt((String)request.getAttribute("pageCount"));
      //get the link for each page
      for(int i=1; i<pageCount;i++){
         out.println("<a href=welcome.jsp?pageNow="+i+">["+i+"]</a>");

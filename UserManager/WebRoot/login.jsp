@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<center>
 		User Login <br>
 		<hr>
-		<form action="verify.jsp" method="post">
+		<form action="LoginControl" method="post">
 			Username: <input type="text" name="username"><br>
 			Password: <input type="text" name="password"><br> <input
 				type="submit" value="Log in"> <input type="reset"
