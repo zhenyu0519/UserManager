@@ -27,15 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="login.jsp">Return to Log In</a>
     <h1>User Information</h1>
     <%
-        //define the page variable
-        int pageNow = 1;//the current page
         
-        //receive the page the user want to jump to
-        String targetPage = request.getParameter("pageNow");
-        if(targetPage != null){
-            //if the pageNow is received for example jump to welcome page from verify page. The pageNow will be null
-            pageNow = Integer.parseInt(targetPage);
-        }
        //call userbean to done the pagination
        //UserBeanOperation ubo = new UserBeanOperation();
        //ArrayList recordList = ubo.getPagination(pageNow);
@@ -58,6 +50,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          %>
      </table>
      <%
+     //get the pageNow from request
+     int pageNow =Integer.parseInt((String)request.getAttribute("pageNow"));
      //create prev page link
      if(pageNow!=1){
         out.println("<a href=UserController?pageNow="+(pageNow-1)+">[Prev]</a>");

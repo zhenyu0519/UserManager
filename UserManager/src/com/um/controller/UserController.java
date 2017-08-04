@@ -36,6 +36,7 @@ public class UserController extends HttpServlet {
 			//put recordList and pageCount into request
 			request.setAttribute("recordList", recordList);
 			request.setAttribute("pageCount", pageCount+"");
+			request.setAttribute("pageNow", pageNow+"");
 			
 			//redirect to welcome
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);

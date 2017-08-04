@@ -35,9 +35,10 @@ public class LoginControl extends HttpServlet {
 			//prepare the data that need to display before jump to welcome page
 			ArrayList recordList = ubo.getPagination(1);
 			int pageCount = ubo.getPageCount();
-			//put recordList and pageCount into request
+			//put recordList and pageCount and pageNow into request
 			request.setAttribute("recordList", recordList);
 			request.setAttribute("pageCount", pageCount+"");
+			request.setAttribute("pageNow", "1");
 			//response.sendRedirect("welcome.jsp"); does not have good performance
 			//this one has good performance and the content of request can be used in next page
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
