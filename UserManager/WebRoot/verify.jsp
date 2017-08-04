@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         //call the verifyUser method in userBeanOperation to verify user
         UserBeanOperation ubo = new UserBeanOperation();
         if(ubo.verifyUser(username, password)){
-            response.sendRedirect("welcome.jsp]");
+            response.sendRedirect("welcome.jsp");
         }else{
             response.sendRedirect("login.jsp");
         }
