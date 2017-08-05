@@ -23,7 +23,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    Log In Successfully! Welcome <%=(String) session.getAttribute("username") %><br>
+  <% //prevent user login illeaglelly
+		  String username = (String) session.getAttribute("username");
+		  System.out.println("username is " + username);
+		  if(username==null){
+		    response.sendRedirect("login.jsp?err=1");
+		    return;
+		  }
+   %>
+    Log In Successfully! Welcome <%=username %><br>
     <a href="login.jsp">Return to Log In</a>
     <h1>User Information</h1>
     <%

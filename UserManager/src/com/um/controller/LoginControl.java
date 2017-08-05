@@ -39,12 +39,14 @@ public class LoginControl extends HttpServlet {
 			request.setAttribute("recordList", recordList);
 			request.setAttribute("pageCount", pageCount+"");
 			request.setAttribute("pageNow", "1");
-			request.setAttribute("username", username);
+			//request.setAttribute("username", username);
+			//put username into session
+			request.getSession().setAttribute("username", username);
+			request.getSession().setMaxInactiveInterval(20);
 			//response.sendRedirect("welcome.jsp"); does not have good performance
 			//this one has good performance and the content of request can be used in next page
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
-			//put username into session
-			request.getSession().setAttribute("username", username);
+			
 			
 		}else{
 			//response.sendRedirect("login.jsp"); does not have good performance
