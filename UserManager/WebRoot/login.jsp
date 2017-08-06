@@ -17,28 +17,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    -->
 
 </head>
 
 <body>
-	<center>
-	<% String err=request.getParameter("err"); 
-	   if(err!=null){
-	       if(err.equals("1")){
-                out.println("login failed");	       
-	       }
-	   }
-	%>
-		User Login <br>
-		<hr>
-		<form action="LoginControl" method="post">
-			Username: <input type="text" name="username"><br>
-			Password: <input type="text" name="password"><br> <input
-				type="submit" value="Log in"> <input type="reset"
-				value="Reset">
-		</form>
-	</center>
+    <center>
+    <% String err=request.getParameter("err"); 
+       if(err!=null){
+           if(err.equals("1")){
+                out.println("login failed");           
+           }
+       }
+    %>
+        User Login <br>
+        <hr>
+        <form action="LoginControl" method="post">
+            Username: <input type="text" name="username"><br>
+            Password: <input type="text" name="password"><br> <input
+                type="submit" value="Log in"> <input type="reset"
+                value="Reset">
+        </form>
+    </center>
 </body>
 </html>
