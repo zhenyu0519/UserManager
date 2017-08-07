@@ -45,7 +45,7 @@ public class LoginControl extends HttpServlet {
 			request.getSession().setMaxInactiveInterval(20);
 			//response.sendRedirect("welcome.jsp"); does not have good performance
 			//this one has good performance and the content of request can be used in next page
-			request.getRequestDispatcher("welcome.jsp").forward(request, response);
+			request.getRequestDispatcher("main.jsp").forward(request, response);
 			
 			
 		}else{
