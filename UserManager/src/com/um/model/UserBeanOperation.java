@@ -105,6 +105,29 @@ public class UserBeanOperation {
 		}
 		return pageCount;
 	}
+	
+	//delete user
+	public boolean deleteById(String id){
+		boolean delete = false;
+		try {
+			// get connection with database
+			connection = new DatabaseConnection().getConnection();
+			// get statement
+			statement = connection.createStatement();
+			//the will return how many line effected in database
+			int effected = statement.executeUpdate("delete from users where id =' "+id+"'");
+			if(effected == 1){
+				//delete user successfully
+				delete = true;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			this.closeDatabase();
+		}
+		return delete;
+	}
 
 	// close the connection with database
 	public void closeDatabase() {

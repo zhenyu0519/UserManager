@@ -45,14 +45,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         //create table to display the records
      %>
      <table border="1">
-        <tr><td>id</td><td>name</td><td>password</td><td>email</td><td>grade</td></tr>
+        <tr><td>id</td><td>name</td><td>password</td><td>email</td><td>grade</td><td>modify</td><td>delete</td></tr>
         <% 
         for(int i =0;i<recordList.size();i++){
         //get the userbean from recordList
         UserBean ub = (UserBean)recordList.get(i);
         %>
                 <tr><td><%=ub.getId() %></td><td><%=ub.getName() %></td><td><%=ub.getPassword() %></td>
-                <td><%=ub.getEmail() %></td><td><%=ub.getGrade() %></td></tr>
+                <td><%=ub.getEmail() %></td><td><%=ub.getGrade() %></td>
+                <td><a href=#>modify</a></td><td><a href="UserController?flag=delete&id=<%=ub.getId() %>">delete</a></td></tr>
          <%
             }
          %>
@@ -62,17 +63,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      int pageNow =Integer.parseInt((String)request.getAttribute("pageNow"));
      //create prev page link
      if(pageNow!=1){
-        out.println("<a href=UserController?pageNow="+(pageNow-1)+">[Prev]</a>");
+        out.println("<a href=UserController?pageNow="+(pageNow-1)+"&flag=pagination>[Prev]</a>");
      }
      //get the pageCount
      int pageCount = Integer.parseInt((String)request.getAttribute("pageCount"));
      //get the link for each page
      for(int i=1; i<pageCount;i++){
-        out.println("<a href=UserController?pageNow="+i+">["+i+"]</a>");
+        out.println("<a href=UserController?pageNow="+i+"&flag=pagination>["+i+"]</a>");
      }
      if(pageNow!=pageCount){
         //create next page link
-        out.println("<a href=UserController?pageNow="+(pageNow+1)+">[Next]</a>");
+        out.println("<a href=UserController?pageNow="+(pageNow+1)+"&flag=pagination>[Next]</a>");
      }
      %>
   </body>

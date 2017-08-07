@@ -25,26 +25,44 @@ public class UserController extends HttpServlet {
 		 * @throws IOException if an error occurred
 		 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			//get the current pageNow
-			int pageNow = Integer.parseInt(request.getParameter("pageNow"));
-			//call userBeanOperation
+		String flag = request.getParameter("flag");
+		if(flag.equals("pagination")){
+			try {
+				//get the current pageNow
+				int pageNow = Integer.parseInt(request.getParameter("pageNow"));
+				//call userBeanOperation
+				UserBeanOperation ubo = new UserBeanOperation();
+				//prepare the data that need to display before jump to welcome page
+				ArrayList recordList = ubo.getPagination(pageNow);
+				int pageCount = ubo.getPageCount();
+				//put recordList and pageCount into request
+				request.setAttribute("recordList", recordList);
+				request.setAttribute("pageCount", pageCount+"");
+				request.setAttribute("pageNow", pageNow+"");
+				
+				//redirect to welcome
+				request.getRequestDispatcher("welcome.jsp").forward(request, response);
+				System.out.println("useing the user controller to do the pagination");
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if(flag.equals("delete")){
+			//delete user
+			//1.get user id
+			String id = request.getParameter("id");
+			//2. create user bean operation
 			UserBeanOperation ubo = new UserBeanOperation();
-			//prepare the data that need to display before jump to welcome page
-			ArrayList recordList = ubo.getPagination(pageNow);
-			int pageCount = ubo.getPageCount();
-			//put recordList and pageCount into request
-			request.setAttribute("recordList", recordList);
-			request.setAttribute("pageCount", pageCount+"");
-			request.setAttribute("pageNow", pageNow+"");
-			
-			//redirect to welcome
-			request.getRequestDispatcher("welcome.jsp").forward(request, response);
-			System.out.println("useing the user controller to do the pagination");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			boolean delete = ubo.deleteById(id);
+			if(delete==true){
+				//delete successfully
+				request.getRequestDispatcher("success.jsp").forward(request, response);
+			}else{
+				//delete failed
+				request.getRequestDispatcher("fail.jsp").forward(request, response);
+			}
 		}
+		
 	}
 
 	/**
