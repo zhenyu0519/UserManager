@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <center>
         <h1>User Menu</h1> <br><hr>
         <a href="UserController?pageNow=1&flag=pagination">manage user</a><br>
-        <a href=#>add user</a><br>
+        <a href="addUser.jsp">add user</a><br>
         <a href=#>find user</a><br>
         <a href=#>delete user</a><br>
         <hr>

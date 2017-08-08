@@ -61,6 +61,22 @@ public class UserController extends HttpServlet {
 				//delete failed
 				request.getRequestDispatcher("fail.jsp").forward(request, response);
 			}
+		}else if(flag.equals("add")){
+			//add user
+			//get user input
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			String email = request.getParameter("email");
+			String grade = request.getParameter("grade");
+			//2. create user bean operation
+			UserBeanOperation ubo = new UserBeanOperation();
+			if(ubo.add(username, password, email, grade)){
+				//delete successfully
+				request.getRequestDispatcher("success.jsp").forward(request, response);
+			}else{
+				//delete failed
+				request.getRequestDispatcher("fail.jsp").forward(request, response);
+			}
 		}
 		
 	}

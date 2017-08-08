@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           }
    %>
     Log In Successfully! Welcome <%=username %><br>
-    <a href="login.jsp">Return to Log In</a>
+    <a href="login.jsp">Return to Log In</a>&nbsp;&nbsp;<a href="main.jsp">Return to Main Menu</a>
     <h1>User Information</h1>
     <%
         

@@ -128,6 +128,32 @@ public class UserBeanOperation {
 		}
 		return delete;
 	}
+	
+	//add user
+	/**
+	 * @author jeffery
+	 */
+	public boolean add(String username, String password, String email, String grade){
+		boolean add = false;
+		try {
+			// get connection with database
+			connection = new DatabaseConnection().getConnection();
+			// get statement
+			statement = connection.createStatement();
+			//the will return how many line effected in database
+			int effected = statement.executeUpdate("insert into users values('"+username+"','"+password+"','"+email+"','"+grade+"')" );
+			if(effected == 1){
+				//add user successfully
+				add = true;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			this.closeDatabase();
+		}
+		return add;
+	}
 
 	// close the connection with database
 	public void closeDatabase() {
