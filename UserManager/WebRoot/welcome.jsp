@@ -19,7 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--
     <link rel="stylesheet" type="text/css" href="styles.css">
     -->
-
+    <script type="text/javascript">
+        function confirmDialog(){
+            console.log("i got called");
+            return window.confirm("Are you sure you want to delete this user?");
+            
+        }
+    </script>
   </head>
   
   <body>
@@ -53,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         %>
                 <tr><td><%=ub.getId() %></td><td><%=ub.getName() %></td><td><%=ub.getPassword() %></td>
                 <td><%=ub.getEmail() %></td><td><%=ub.getGrade() %></td>
-                <td><a href=#>modify</a></td><td><a href="UserController?flag=delete&id=<%=ub.getId() %>">delete</a></td></tr>
+                <td><a href=#>modify</a></td><td><a onclick="return confirmDialog();" href="UserController?flag=delete&id=<%=ub.getId() %>">delete</a></td></tr>
          <%
             }
          %>
