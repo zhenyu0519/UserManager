@@ -16,9 +16,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="expires" content="0">    
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
+
+    <link rel="stylesheet" type="text/css" href="css/table.css">
+    
     <script type="text/javascript">
         function confirmDialog(){
             console.log("i got called");
@@ -29,6 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <center>
   <% //prevent user login illeaglelly
           String username = (String) session.getAttribute("username");
           System.out.println("username is " + username);
@@ -37,9 +38,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             return;
           }
    %>
-    Log In Successfully! Welcome <%=username %><br>
-    <a href="login.jsp">Return to Log In</a>&nbsp;&nbsp;<a href="main.jsp">Return to Main Menu</a>
+    <h1>Welcome,  <%=username %></h1><br>
     <h1>User Information</h1>
+    </center>
     <%
         
        //call userbean to done the pagination
@@ -50,8 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        
         //create table to display the records
      %>
-     <table border="1">
-        <tr><td>id</td><td>name</td><td>password</td><td>email</td><td>grade</td><td>modify</td><td>delete</td></tr>
+     <table>
+        <thead><tr><th>id</th><th>name</th><th>password</th><th>email</th><th>grade</th><th>modify</th><th>delete</th></tr></thead>
         <% 
         for(int i =0;i<recordList.size();i++){
         //get the userbean from recordList
@@ -63,7 +64,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          <%
             }
          %>
-     </table>
+     </table><br>
+     <center>
      <%
      //get the pageNow from request
      int pageNow =Integer.parseInt((String)request.getAttribute("pageNow"));
@@ -82,5 +84,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         out.println("<a href=UserController?pageNow="+(pageNow+1)+"&flag=pagination>[Next]</a>");
      }
      %>
+     <br>
+     <a href="login.jsp">Return to Log In</a>&nbsp;&nbsp;<a href="main.jsp">Return to Main Menu</a>
+     </center>
   </body>
 </html>
