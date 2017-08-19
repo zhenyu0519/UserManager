@@ -16,9 +16,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
 
 </head>
 
@@ -31,13 +31,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            }
        }
     %>
-        User Login <br>
-        <hr>
-        <form action="LoginControl" method="post">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="text" name="password"><br> <input
-                type="submit" value="Log in"> <input type="reset"
-                value="Reset">
+
+        <form action="LoginControl" method="post" class="login">
+            <h1>User Login</h1>
+            <input type="text" name="username" class="login-input" placeholder="Username" autofocus><br>
+            <input type="text" name="password" class="login-input" placeholder="Password" autofocus><br> 
+            <input type="submit" value="Login" class="login-submit">
+            <input type="reset"  value="Reset" class="login-submit">
         </form>
     </center>
 </body>
