@@ -16,22 +16,96 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/default.css">
+	<link rel="stylesheet" type="text/css" href="css/component.css">
+	<script src="js/modernizr.custom.js"></script>
 
   </head>
   
   </head>
 
 <body>
-    <center>
-        <h1>User Menu</h1> <br><hr>
-        <a href="UserController?pageNow=1&flag=pagination">manage user</a><br>
-        <a href="addUser.jsp">add user</a><br>
-        <a href=#>find user</a><br>
-        <a href=#>delete user</a><br>
-        <hr>
-    </center>
+
+
+    <div class="container"> 
+            <header>
+                <h1>User Menu</h1>    
+            </header>
+            <div class="main clearfix">
+                <nav id="menu" class="nav"><button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>                   
+                    <ul>
+                        <li>
+                            <a href="UserController?pageNow=1&flag=pagination">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-home"></i>
+                                </span>
+                                <span>manage user</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="addUser.jsp">
+                                <span class="icon"> 
+                                    <i aria-hidden="true" class="icon-services"></i>
+                                </span>
+                                <span>add user</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-portfolio"></i>
+                                </span>
+                                <span>find user</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="icon">
+                                    <i aria-hidden="true" class="icon-blog"></i>
+                                </span>
+                                <span>delete user</span>
+                            </a>
+                        </li> 
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        
+        <script>
+            //  The function to change the class
+            var changeClass = function (r,className1,className2) {
+                var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+                if( regex.test(r.className) ) {
+                    r.className = r.className.replace(regex,' '+className2+' ');
+                }
+                else{
+                    r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+                }
+                return r.className;
+            };  
+
+            //  Creating our button in JS for smaller screens
+            var menuElements = document.getElementById('menu');
+            menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+            //  Toggle the class on click to show / hide the menu
+            document.getElementById('menutoggle').onclick = function() {
+                changeClass(this, 'navtoogle active', 'navtoogle');
+            }
+
+            // http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+            document.onclick = function(e) {
+                var mobileButton = document.getElementById('menutoggle'),
+                    buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+                if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+                    changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+                }
+            }
+        </script>
+        
 </body>
 </html>

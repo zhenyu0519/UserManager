@@ -31,11 +31,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            }
        }
     %>
-
+        <br>
         <form action="LoginControl" method="post" class="login">
             <h1>User Login</h1>
-            <input type="text" name="username" class="login-input" placeholder="Username" autofocus><br>
-            <input type="text" name="password" class="login-input" placeholder="Password" autofocus><br> 
+            <input type="text" name="username" class="login-input" placeholder="Username"><br>
+            <input type="text" name="password" class="login-input" placeholder="Password"><br> 
             <input type="submit" value="Login" class="login-submit">
             <input type="reset"  value="Reset" class="login-submit">
         </form>
