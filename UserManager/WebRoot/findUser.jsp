@@ -22,6 +22,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+  <%
+            //prevent user login illeaglelly
+            String username = (String) session.getAttribute("username");
+            if (username == null) {
+                response.sendRedirect("login.jsp?err=1");
+                return;
+            }
+        %>
     <a href="main.jsp">Main Menu</a>
     <center>
         <form action="UserController?flag=find" method="post" class="login">

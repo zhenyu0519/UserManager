@@ -35,15 +35,13 @@
 		<%
 			//prevent user login illeaglelly
 			String username = (String) session.getAttribute("username");
-			System.out.println("username is " + username);
 			if (username == null) {
 				response.sendRedirect("login.jsp?err=1");
 				return;
 			}
 		%>
-		<h1>Welcome,<%=username%></h1>
 		<br>
-		<h2>User Information</h2>
+		<h1>User Information</h1>
 	</center>
 	<%
 		//call userbean to done the pagination
