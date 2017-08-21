@@ -16,19 +16,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="expires" content="0">    
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
+
+    <link rel="stylesheet" type="text/css" href="css/button.css">
+
 
   </head>
   
   </head>
 
 <body>
-    <center>
-        <h1>Successfully!</h1> <br><hr>
-        <a href="main.jsp">return to main menu</a>
-        <hr>
+    <center style="padding:250px">
+        <h1><span style = "color: #EC5C93;">Yeah!</span> Click the button &darr; to go <span style = "color: #EC5C93;">back</span></h1><br>
+        <div class="btn btn-blob"><a href="welcome.jsp">&spades;</div>
     </center>
 </body>
 </html>

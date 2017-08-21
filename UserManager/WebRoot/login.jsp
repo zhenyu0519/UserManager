@@ -24,13 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
     <center>
-    <% String err=request.getParameter("err"); 
-       if(err!=null){
-           if(err.equals("1")){
-                out.println("login failed");           
-           }
-       }
-    %>
         <br>
         <form action="LoginControl" method="post" class="login">
             <h1>User Login</h1>
