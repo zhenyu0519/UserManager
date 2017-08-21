@@ -77,6 +77,26 @@ public class UserController extends HttpServlet {
 				//add failed
 				request.getRequestDispatcher("fail.jsp").forward(request, response);
 			}
+		}else if(flag.equals("find")){
+			//add user
+			//get user input
+			String username = request.getParameter("username");
+			//call userBeanOperation
+			UserBeanOperation ubo = new UserBeanOperation();
+			//prepare the data that need to display before jump to welcome page
+			ArrayList recordList = ubo.find(username);
+			//2. create user bean operation
+			request.setAttribute("recordList", recordList);	
+			//forward to welcome
+			request.getRequestDispatcher("findResult.jsp").forward(request, response);
+			System.out.println("useing the user controller to do the find+++++++");
+//			if(ubo.find(username)){
+//				//add successfully
+//				request.getRequestDispatcher("success.jsp").forward(request, response);
+//			}else{
+//				//add failed
+//				request.getRequestDispatcher("fail.jsp").forward(request, response);
+//			}
 		}
 		
 	}

@@ -154,6 +154,35 @@ public class UserBeanOperation {
 		}
 		return add;
 	}
+	
+	public ArrayList find(String username){
+		ArrayList recordList = new ArrayList();
+		try {
+			// get connection with database
+			connection = new DatabaseConnection().getConnection();
+			// get statement
+			statement = connection.createStatement();
+			//the will return how many line effected in database
+			
+			rs = statement.executeQuery("select * from users where name like ('%"+username+"%')" );
+			while (rs.next()) {
+				UserBean ub = new UserBean();
+				ub.setId(rs.getInt(1));
+				ub.setName(rs.getString(2));
+				ub.setPassword(rs.getString(3));
+				ub.setEmail(rs.getString(4));
+				ub.setGrade(rs.getInt(5));
+				// put userbean into arraylist
+				recordList.add(ub);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally{
+			this.closeDatabase();
+		}
+		return recordList;
+	}
 
 	// close the connection with database
 	public void closeDatabase() {

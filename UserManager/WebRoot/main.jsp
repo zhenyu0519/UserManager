@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="findUser.jsp">
                                 <span class="icon">
                                     <i aria-hidden="true" class="icon-portfolio"></i>
                                 </span>
