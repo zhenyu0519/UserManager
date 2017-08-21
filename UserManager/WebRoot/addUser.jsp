@@ -16,23 +16,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
+
+<link rel="stylesheet" type="text/css" href="css/form.css">
 
 </head>
 
 <body>
     <center>
-        <h1>Please Enter Your Info</h1>
-        <form action="UserController?flag=add" method="post">
-            <table border="1">
-            <tr><td>username</td><td><input type="text" name="username" /></td></tr>
-            <tr><td>password</td><td><input type="password" name="password" /></td></tr>
-            <tr><td>email</td><td><input type="text" name="email" /></td></tr>
-            <tr><td>grade</td><td><input type="text" name="grade" /></td></tr>
-            <td><input type="submit" value="add" /></td>&nbsp;&nbsp;<td><input type="reset" name="rest" /></td>
-            </table>
+        <form action="UserController?flag=add" method="post" class="login">
+            <h1>Enter New User</h1>
+            <input type="text" name="username"  class="login-input"  placeholder="Username"/><br>
+            <input type="password" name="password"  class="login-input" placeholder="Password"/><br>
+            <input type="text" name="email"  class="login-input"  placeholder="Email"/><br>
+            <input type="text" name="grade"  class="login-input"  placeholder="Grade"/><br>
+            <input type="submit" value="Add"  class="login-submit"/><input type="reset" value="Reset" name="rest" class="login-submit" />
         </form>
     </center>
 </body>

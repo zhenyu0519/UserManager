@@ -40,7 +40,7 @@ public class UserController extends HttpServlet {
 				request.setAttribute("pageCount", pageCount+"");
 				request.setAttribute("pageNow", pageNow+"");
 				
-				//redirect to welcome
+				//forward to welcome
 				request.getRequestDispatcher("welcome.jsp").forward(request, response);
 				System.out.println("useing the user controller to do the pagination");
 			} catch (Exception e) {
@@ -71,10 +71,10 @@ public class UserController extends HttpServlet {
 			//2. create user bean operation
 			UserBeanOperation ubo = new UserBeanOperation();
 			if(ubo.add(username, password, email, grade)){
-				//delete successfully
+				//add successfully
 				request.getRequestDispatcher("success.jsp").forward(request, response);
 			}else{
-				//delete failed
+				//add failed
 				request.getRequestDispatcher("fail.jsp").forward(request, response);
 			}
 		}

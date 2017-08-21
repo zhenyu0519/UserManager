@@ -32,17 +32,9 @@ public class LoginControl extends HttpServlet {
 		//1. create UserBeanOperation object
 		UserBeanOperation ubo = new UserBeanOperation();
 		if(ubo.verifyUser(username, password)){
-			//prepare the data that need to display before jump to welcome page
-			ArrayList recordList = ubo.getPagination(1);
-			int pageCount = ubo.getPageCount();
-			//put recordList and pageCount, pageNow and username into request
-			request.setAttribute("recordList", recordList);
-			request.setAttribute("pageCount", pageCount+"");
-			request.setAttribute("pageNow", "1");
-			//request.setAttribute("username", username);
 			//put username into session
 			request.getSession().setAttribute("username", username);
-			request.getSession().setMaxInactiveInterval(20);
+			request.getSession().setMaxInactiveInterval(30);
 			//response.sendRedirect("welcome.jsp"); does not have good performance
 			//this one has good performance and the content of request can be used in next page
 			request.getRequestDispatcher("main.jsp").forward(request, response);
