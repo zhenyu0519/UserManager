@@ -30,6 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <input type="text" name="email"  class="login-input"  placeholder="Email"/><br>
             <input type="text" name="grade"  class="login-input"  placeholder="Grade"/><br>
             <input type="submit" value="Add"  class="login-submit"/><input type="reset" value="Reset" name="rest" class="login-submit" />
+            <a href="login.jsp">Return to Log In</a>
         </form>
     </center>
 </body>
