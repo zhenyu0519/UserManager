@@ -1,7 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -17,21 +18,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-    <link rel="stylesheet" type="text/css" href="css/form.css">
+<link rel="stylesheet" type="text/css" href="css/form.css">
 
 
 </head>
 
 <body>
-    <center>
-        <br>
-        <form action="LoginControl" method="post" class="login">
-            <h1>User Login</h1>
-            <input type="text" name="username" class="login-input" placeholder="Username"><br>
-            <input type="text" name="password" class="login-input" placeholder="Password"><br> 
-            <input type="submit" value="Login" class="login-submit">
-            <input type="reset"  value="Reset" class="login-submit">
-        </form>
-    </center>
+	<center>
+		<br>
+		<form action="LoginControl" method="post" class="login">
+			<h1>User Login</h1>
+			<%
+				if (null != request.getAttribute("errorMessage")) {
+					out.println("<h2><span style='color:white'>"+request.getAttribute("errorMessage")+"</span></h2>");
+				}
+			%>
+			<br>
+			<input type="text" name="username" class="login-input"
+				placeholder="Username"><br> <input type="text"
+				name="password" class="login-input" placeholder="Password"><br>
+			<input type="submit" value="Login" class="login-submit"> <input
+				type="reset" value="Reset" class="login-submit">
+		</form>
+	</center>
 </body>
 </html>

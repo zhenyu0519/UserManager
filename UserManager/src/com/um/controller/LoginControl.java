@@ -42,6 +42,8 @@ public class LoginControl extends HttpServlet {
 			
 		}else{
 			//response.sendRedirect("login.jsp"); does not have good performance
+			request.getSession().invalidate();
+			request.setAttribute("errorMessage", "Invalid user or password!");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
