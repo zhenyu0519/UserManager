@@ -18,7 +18,13 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" type="text/css" href="css/table.css">
+<script type="text/javascript">
+    function confirmDialog() {
+        console.log("i got called");
+        return window.confirm("Are you sure you want to delete this user?");
 
+    }
+</script>
 </head>
 
 <body>
