@@ -10,7 +10,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'main.jsp' starting page</title>
+<title>My JSP 'success.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -35,8 +35,8 @@
 		}
 	%>
 	<%
+	    //get the flag to tell if it is add or delete
 		String flag = (String) session.getAttribute("flag1");
-		System.out.println("yeah is " + flag);
 		String message = "";
 		if (flag.equals("add")) {
 			message = " Add new user successfully,";

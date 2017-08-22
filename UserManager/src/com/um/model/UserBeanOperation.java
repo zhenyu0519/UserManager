@@ -92,7 +92,7 @@ public class UserBeanOperation {
 			if (rs.next()) {
 				rowCount = rs.getInt(1);
 			}
-			// caculate the page count
+			// Calculate the page count
 			if (rowCount % pageSize == 0) {
 				pageCount = rowCount / pageSize;
 			} else {
@@ -114,7 +114,7 @@ public class UserBeanOperation {
 			connection = new DatabaseConnection().getConnection();
 			// get statement
 			statement = connection.createStatement();
-			//the will return how many line effected in database
+			//this will return how many line effected in database
 			int effected = statement.executeUpdate("delete from users where id =' "+id+"'");
 			if(effected == 1){
 				//delete user successfully
@@ -205,6 +205,7 @@ public class UserBeanOperation {
 			System.out.println("Result Set Not Closed Properly ");
 			e.printStackTrace();
 		}
+		//close the connection of database
 		try {
 			if (statement != null)
 				statement.close();

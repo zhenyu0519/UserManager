@@ -95,6 +95,7 @@ public class UserController extends HttpServlet {
 			UserBeanOperation ubo = new UserBeanOperation();
 			//tell the successful and fail page this is from add
 			request.getSession().setAttribute("flag1", "add");
+			//verify the add user function
 			if(ubo.add(username, password, email, grade)){
 				//add successfully
 				request.getRequestDispatcher("success.jsp").forward(request, response);

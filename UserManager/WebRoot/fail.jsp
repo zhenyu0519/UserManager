@@ -10,7 +10,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'main.jsp' starting page</title>
+<title>My JSP 'fail.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -34,7 +34,6 @@
 	%>
 	<%
 		String flag = (String) session.getAttribute("flag1");
-		System.out.println("what is "+flag);
 		String message = "";
 		if (flag.equals("add")) {
             message = " Add new user failed, cause user already exists or necessay info were not filled (email, username),";
