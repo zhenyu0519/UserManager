@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <nav id="menu" class="nav"><button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>                   
                     <ul>
                         <li>
-                            <a href="UserController?pageNow=1&flag=pagination">
+                            <a href="UserController?pageNow=1&flag=manageUser">
                                 <span class="icon">
                                     <i aria-hidden="true" class="icon-home"></i>
                                 </span>
@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="UserController?pageNow=1&flag=deleteUser">
                                 <span class="icon">
                                     <i aria-hidden="true" class="icon-blog"></i>
                                 </span>

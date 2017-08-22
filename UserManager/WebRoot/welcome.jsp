@@ -60,8 +60,6 @@
 				<th>password</th>
 				<th>email</th>
 				<th>grade</th>
-				<th>modify</th>
-				<th>delete</th>
 			</tr>
 		</thead>
 		<%
@@ -75,9 +73,8 @@
 			<td><%=ub.getPassword()%></td>
 			<td><%=ub.getEmail()%></td>
 			<td><%=ub.getGrade()%></td>
-			<td><a href=#>modify</a></td>
-			<td><a onclick="return confirmDialog();"
-				href="UserController?flag=delete&id=<%=ub.getId()%>">delete</a></td>
+			<%-- <td><a onclick="return confirmDialog();"
+				href="UserController?flag=delete&id=<%=ub.getId()%>">delete</a></td> --%>
 		</tr>
 		<%
 			}
@@ -90,17 +87,17 @@
 			int pageNow = Integer.parseInt((String) request.getAttribute("pageNow"));
 			//create prev page link
 			if (pageNow != 1) {
-				out.println("<a href=UserController?pageNow=" + (pageNow - 1) + "&flag=pagination>[Prev]</a>");
+				out.println("<a href=UserController?pageNow=" + (pageNow - 1) + "&flag=manageUser>[Prev]</a>");
 			}
 			//get the pageCount
 			int pageCount = Integer.parseInt((String) request.getAttribute("pageCount"));
 			//get the link for each page
 			for (int i = 1; i < pageCount; i++) {
-				out.println("<a href=UserController?pageNow=" + i + "&flag=pagination>[" + i + "]</a>");
+				out.println("<a href=UserController?pageNow=" + i + "&flag=manageUser>[" + i + "]</a>");
 			}
 			if (pageNow != pageCount) {
 				//create next page link
-				out.println("<a href=UserController?pageNow=" + (pageNow + 1) + "&flag=pagination>[Next]</a>");
+				out.println("<a href=UserController?pageNow=" + (pageNow + 1) + "&flag=manageUser>[Next]</a>");
 			}
 		%>
 		<br> <a href="login.jsp">Return to Log In</a>&nbsp;&nbsp;<a
