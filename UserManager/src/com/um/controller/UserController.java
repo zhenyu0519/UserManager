@@ -114,14 +114,9 @@ public class UserController extends HttpServlet {
 			request.setAttribute("recordList", recordList);	
 			//forward to welcome
 			request.getRequestDispatcher("findResult.jsp").forward(request, response);
-			System.out.println("useing the user controller to do the find+++++++");
-//			if(ubo.find(username)){
-//				//add successfully
-//				request.getRequestDispatcher("success.jsp").forward(request, response);
-//			}else{
-//				//add failed
-//				request.getRequestDispatcher("fail.jsp").forward(request, response);
-//			}
+		}else if(flag.equals("logout")){
+			request.getSession().invalidate();
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 		
 	}

@@ -24,7 +24,6 @@ public class LoginControl extends HttpServlet {
 		 * @throws IOException if an error occurred
 		 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 		//get the username and password
 		String username=request.getParameter("username");
 		String password=request.getParameter("password");

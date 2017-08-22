@@ -37,7 +37,7 @@
 		System.out.println("what is "+flag);
 		String message = "";
 		if (flag.equals("add")) {
-            message = " Add new user failed, user already exists,";
+            message = " Add new user failed, cause user already exists or necessay info were not filled (email, username),";
 		} else if(flag.equals("delete")) {
             message = " Delete User failed,";
 		}

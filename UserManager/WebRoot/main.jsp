@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*,com.um.model.*" pageEncoding="ISO-8859-1"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -38,7 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="container"> 
     <h2 style="padding:20px">Welcome, <%=username%></h2>
             <header>
-                <h1>Main Menu</h1>    
+                <h1>Main Menu</h1>
+                <h2><a href="UserController?flag=logout">Clear Session and Log Out</a></h2>    
             </header>
             <div class="main clearfix">
                 <nav id="menu" class="nav"><button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>                   

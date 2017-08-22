@@ -135,6 +135,10 @@ public class UserBeanOperation {
 	 */
 	public boolean add(String username, String password, String email, String grade){
 		boolean add = false;
+		//verify if the necessary info are filled in blank.
+		if("".equals(username)||"".equals(email)){
+			return add;
+		}
 		try {
 			// get connection with database
 			connection = new DatabaseConnection().getConnection();
