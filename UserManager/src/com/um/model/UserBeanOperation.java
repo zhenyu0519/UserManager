@@ -140,6 +140,11 @@ public class UserBeanOperation {
 			connection = new DatabaseConnection().getConnection();
 			// get statement
 			statement = connection.createStatement();
+			//determine if the email is exist which means user exist
+			rs = statement.executeQuery("select * from users where email='"+email+"'");
+			if(rs.next()){
+				return false;
+			}
 			//the will return how many line effected in database
 			int effected = statement.executeUpdate("insert into users values('"+username+"','"+password+"','"+email+"','"+grade+"')" );
 			if(effected == 1){

@@ -75,6 +75,8 @@ public class UserController extends HttpServlet {
 			//2. create user bean operation
 			UserBeanOperation ubo = new UserBeanOperation();
 			boolean delete = ubo.deleteById(id);
+			//tell the successful and fail page this is from delete
+			request.getSession().setAttribute("flag1", "delete");
 			if(delete==true){
 				//delete successfully
 				request.getRequestDispatcher("success.jsp").forward(request, response);
@@ -82,7 +84,7 @@ public class UserController extends HttpServlet {
 				//delete failed
 				request.getRequestDispatcher("fail.jsp").forward(request, response);
 			}
-		}else if(flag.equals("add")){
+		}else if(flag.equals("addUser")){
 			//add user
 			//get user input
 			String username = request.getParameter("username");
@@ -91,6 +93,8 @@ public class UserController extends HttpServlet {
 			String grade = request.getParameter("grade");
 			//2. create user bean operation
 			UserBeanOperation ubo = new UserBeanOperation();
+			//tell the successful and fail page this is from add
+			request.getSession().setAttribute("flag1", "add");
 			if(ubo.add(username, password, email, grade)){
 				//add successfully
 				request.getRequestDispatcher("success.jsp").forward(request, response);
@@ -98,7 +102,7 @@ public class UserController extends HttpServlet {
 				//add failed
 				request.getRequestDispatcher("fail.jsp").forward(request, response);
 			}
-		}else if(flag.equals("find")){
+		}else if(flag.equals("findUser")){
 			//add user
 			//get user input
 			String username = request.getParameter("username");

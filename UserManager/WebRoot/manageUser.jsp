@@ -100,7 +100,8 @@
 				out.println("<a href=UserController?pageNow=" + (pageNow + 1) + "&flag=manageUser>[Next]</a>");
 			}
 		%>
-		<br> <a href="login.jsp">Return to Log In</a>&nbsp;&nbsp;<a
+		<br><br>
+		<a href="login.jsp">Return to Log In</a>&nbsp;&nbsp;&nbsp;&nbsp;<a
 			href="main.jsp">Return to Main Menu</a>
 	</center>
 </body>

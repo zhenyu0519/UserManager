@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         %>
     <a href="main.jsp">Main Menu</a>
     <center>
-        <form action="UserController?flag=find" method="post" class="login">
+        <form action="UserController?flag=findUser" method="post" class="login">
             <div style="padding:200px">
             <input class="button" style = "height:50px; width:500px; font-size:20pt;" type="text" name="username"  class="login-input"  placeholder="Type the user name..."/><br>
             <!-- <input type="submit" value="Add"  class="login-submit"/><input type="submit" value="Add"  class="login-submit"/><br> -->

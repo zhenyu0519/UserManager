@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*,java.sql.*,com.um.model.*" pageEncoding="ISO-8859-1"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -24,9 +24,33 @@
 </head>
 
 <body>
+	<%
+		//prevent user login illeaglelly
+		String username = (String) session.getAttribute("username");
+		if (username == null) {
+			response.sendRedirect("login.jsp?err=1");
+			return;
+		}
+	%>
+	<%
+		String flag = (String) session.getAttribute("flag1");
+		System.out.println("what is "+flag);
+		String message = "";
+		if (flag.equals("add")) {
+            message = " Add new user failed, user already exists,";
+		} else if(flag.equals("delete")) {
+            message = " Delete User failed,";
+		}
+	%>
 	<center style="padding:250px">
-        <h1><span style = "color: #EC5C93;">Oops!</span> Click the button &darr; go to <span style = "color: #EC5C93;">main menu</span></h1><br>
-        <div class="btn btn-blob"><a href="main.jsp">&Oslash;</a></div>
-    </center>
+		<h1>
+			<span style="color: #EC5C93;">Oops! </span><%=message %> Click the button &darr; go
+			to <span style="color: #EC5C93;"> main menu</span>
+		</h1>
+		<br>
+		<div class="btn btn-blob">
+			<a href="main.jsp">&Oslash;</a>
+		</div>
+	</center>
 </body>
 </html>
