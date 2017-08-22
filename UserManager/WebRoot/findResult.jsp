@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <a href="findUser.jsp">Back To Previous</a>
+  <a href="findUser.jsp">Main Menu</a>
     <% 
         //call userbean to done the pagination
         //UserBeanOperation ubo = new UserBeanOperation();

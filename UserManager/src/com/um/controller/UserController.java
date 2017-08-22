@@ -41,7 +41,7 @@ public class UserController extends HttpServlet {
 				request.setAttribute("pageNow", pageNow+"");
 				
 				//forward to welcome
-				request.getRequestDispatcher("welcome.jsp").forward(request, response);
+				request.getRequestDispatcher("manageUser.jsp").forward(request, response);
 				System.out.println("using the user controller to do the pagination");
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

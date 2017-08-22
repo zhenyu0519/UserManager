@@ -26,8 +26,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
     <center style="padding:250px">
-        <h1><span style = "color: #EC5C93;">Yeah!</span> Click the button &darr; to go <span style = "color: #EC5C93;">back</span></h1><br>
-        <div class="btn btn-blob"><a href="welcome.jsp">&spades;</div>
+        <h1><span style = "color: #EC5C93;">Yeah!</span> Click the button &darr; go to<span style = "color: #EC5C93;">main menu</span></h1><br>
+        <div class="btn btn-blob"><a href="main.jsp">&spades;</a></div>
     </center>
 </body>
 </html>
