@@ -1,4 +1,4 @@
-//this controller will deal with the pagination and add, modify, delete user
+ //this controller will deal with the pagination and add, modify, delete user
 package com.um.controller;
 import com.um.model.*;
 import java.io.IOException;

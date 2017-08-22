@@ -34,7 +34,7 @@ public class LoginControl extends HttpServlet {
 		if(ubo.verifyUser(username, password)){
 			//put username into session
 			request.getSession().setAttribute("username", username);
-			request.getSession().setMaxInactiveInterval(30);
+			request.getSession().setMaxInactiveInterval(60*40);
 			//response.sendRedirect("welcome.jsp"); does not have good performance
 			//this one has good performance and the content of request can be used in next page
 			request.getRequestDispatcher("main.jsp").forward(request, response);
